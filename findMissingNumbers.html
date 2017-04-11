@@ -1,0 +1,73 @@
+<html>
+	<head>
+
+		<title>Find Missing Number</title>
+	
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link href="img/apttus_mobile_icon.png" rel="shortcut icon">
+
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/dhtmlxcalendar.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+
+		
+	</head>
+
+<body ng-app="app" ng-controller="findMissingNumber">
+	
+	<header class="siteThemeBg1">
+		<div class="container">
+			<a href="form.html">
+				<img src="img/APTTUS_NEW_LOGO.png">
+			</a>
+			
+		</div>
+	</header>
+
+	<main class="has-min-height customerform">
+
+		<form class="container">
+			
+			<div class="form-group">
+				
+				<label>Enter a list of numbers separated by comma (,) <br><small>eg. 12, 43, 54</small></label>
+				<input type="text" class="form-control" ng-model="input" ng-change="calculate();">
+
+			</div>
+
+
+			<br><br><br><br>
+			<div class="form-group">
+				
+				<label>List of Missing Numbers (From 0 to highest number entered)</label>
+				<h4 ng-bind="finalOutput"></h4>
+
+			</div>
+
+
+		</form>
+	
+
+	</main>
+
+
+	<footer class="siteThemeBg2">
+		<div class="container">
+			<p class="whiteText">&copy; Copyright Alright Reserved</p>
+		</div>
+	</footer>
+
+<!--
+	Script section
+-->
+<script type="text/javascript" src="js/dhtmlxcalendar.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/main-app.js"></script>
+<script type="text/javascript" src="js/controllers.js"></script>
+
+
+
+</body>
+</html>

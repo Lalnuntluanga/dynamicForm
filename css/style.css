@@ -1,0 +1,47 @@
+.siteThemeBg1{
+  background-color: #61A60E;
+}
+.siteThemeBg2{
+  background-color: #333333;
+}
+.darkRedText{
+  color: #d4360c;
+}
+.whiteText{
+  color: #fff;
+}
+
+main.has-min-height{
+  min-height: 766px;
+}
+main.customerform form{
+  margin-top: 50px;
+}
+header{
+  padding: 20px 0px;
+  min-height: 77px;
+}
+footer{
+  padding: 40px;
+}
+.navbar{
+  border:0px;
+  border-radius: 0px;
+}
+
+.navbar-nav.activeWhite li.active a, .navbar-nav.activeWhite li.active a:focus{
+  background: #fff;
+  color: #333;
+} 
+
+.customerform form .form-title{
+  margin-bottom: 30px;
+}
+.customerform form .submit-btn-group{
+  margin-top: 20px;
+}
+
+.customerform form .submit-btn-group .btn{
+  width: 200px;
+  height: 40px;
+}

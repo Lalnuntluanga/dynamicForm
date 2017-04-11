@@ -1,0 +1,204 @@
+<html>
+<head>
+
+	<title>Form</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="img/apttus_mobile_icon.png" rel="shortcut icon">
+
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/dhtmlxcalendar.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+
+	
+	<!--
+		Script section for dynamic Data.
+	-->
+	<script type="text/javascript">
+		
+		var pageConfig = {
+
+
+			form : {
+
+				
+
+
+				customers : [
+					
+					{
+						name : "Adobe",
+						title : "Add New Employee",
+						action : "form.html",
+						columns : 2,
+						inputs : [
+							{ element : "input", label : "Name", type : "text", value : '', required : true},
+							{ element : "input", label : "email", type : "email", value : '', required : true},
+							{ 
+								element : "select", 
+								label : "Gender", 
+								value : '', 
+								required : true, 
+								htmlClass : 'col-md-6',
+								listOptions : [
+									{
+										value : 1,
+										label : "Male"
+									},
+									{
+										value : 2,
+										label : "Female"
+									},
+
+								]
+							},
+							{ 
+								element : "select", 
+								label : "Marital Status", 
+								value : '', 
+								required : true, 
+								htmlClass : 'col-md-6',
+								listOptions : [
+									{
+										value : 1,
+										label : "Married"
+									},
+									{
+										value : 2,
+										label : "Single"
+									},
+
+								]
+							},
+							{ element : "input", label : "Date of Birth", type : "date", value : '', required : true},
+							{ element : "input", label : "Joining Date", type : "date", value : '', required : true},
+						]
+
+					},
+					{
+						name : "Lenovo",
+						title : "Add New Customer",
+						action : "form.html",
+						columns : 3,
+						inputs : [
+							{ element : "input", label : "First Name", type : "text", value : '', required : true},
+							{ element : "input", label : "Last Name", type : "text", value : '', required : true},
+							{ element : "input", label : "Email", type : "email", value : '', required : true},
+							{ element : "input", label : "Refered By", type : "text", value : '', required : true},
+							{ 
+								element : "select", 
+								label : "Gender", 
+								value : '', 
+								required : true, 
+								htmlClass : 'col-md-4',
+								listOptions : [
+									{
+										value : 1,
+										label : "Male"
+									},
+									{
+										value : 2,
+										label : "Female"
+									},
+
+								]
+							},
+							{ 
+								element : "select", 
+								label : "Marital Status", 
+								value : '', 
+								required : true, 
+								htmlClass : 'col-md-4',
+								listOptions : [
+									{
+										value : 1,
+										label : "Married"
+									},
+									{
+										value : 2,
+										label : "Single"
+									},
+
+								]
+							},
+						]
+
+					},
+					
+
+				]
+			} 
+
+		}
+
+	</script>
+
+</head>
+
+<body ng-app="app" ng-controller="customerForm">
+	
+	<header class="siteThemeBg1">
+		<div class="container">
+			<a href="form.html">
+				<img src="img/APTTUS_NEW_LOGO.png">
+			</a>
+			
+		</div>
+	</header>
+
+	<main class="has-min-height customerform">
+
+		<nav class="navbar navbar-inverse">
+  			<div class="container">
+    			<ul class="nav navbar-nav activeWhite">
+      				<li ng-repeat="x in customers.list" ng-class="($parent.formActive == x)?'active':''" ng-click="$parent.formActive = x"><a href="#" ng-bind="x.name"></a></li>
+    			</ul>
+  			</div>
+		</nav>
+		
+		<form class="container" method="POST" ng-customaction="formActive.action" ng-submit="submitForm($event)">
+			<!-- <div ng-forminputs="formActive.inputs"></div> -->
+			<h4 class="form-title text-uppercase" ng-bind="formActive.title"></h4>
+
+			<div class="form-group" ng-repeat="x in formActive.inputs" ng-class="(formActive.columns == 3)?'col-md-4' : ((formActive.columns == 2)?'col-md-6':'col-md-3')">	
+
+				<label ng-bind="x.label"></label>
+
+				<input class="form-control" ng-if="(x.element == 'input')" ng-model="x.value" ng-required="x.required" ng-attr-type="{{x.type}}" ng-dateinput="x">
+
+				<select class="form-control" ng-if="(x.element == 'select')" ng-required="x.required" ng-options="x.label for x in x.listOptions" ng-model="x.value">
+					<option value="" disabled>Select</option>
+				</select>
+
+			</div>
+
+			<div class="form-group col-md-12 col-sm-12 submit-btn-group">
+				<input class="btn btn-primary pull-right" type="submit" value="Submit">
+			</div>
+			
+		</form>
+
+	</main>
+
+
+	<footer class="siteThemeBg2">
+		<div class="container">
+			<p class="whiteText">&copy; Copyright Alright Reserved</p>
+		</div>
+	</footer>
+
+<!--
+	Script section
+-->
+<script type="text/javascript" src="js/dhtmlxcalendar.js"></script>
+<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/main-app.js"></script>
+<script type="text/javascript" src="js/controllers.js"></script>
+
+
+
+</body>
+</html>
