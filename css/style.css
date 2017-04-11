@@ -29,7 +29,7 @@ footer{
   border-radius: 0px;
 }
 
-.navbar-nav.activeWhite li.active a, .navbar-nav.activeWhite li.active a:focus{
+.navbar-nav.activeWhite li.active a:hover, .navbar-nav.activeWhite li.active a, .navbar-nav.activeWhite li.active a:focus{
   background: #fff;
   color: #333;
 } 
